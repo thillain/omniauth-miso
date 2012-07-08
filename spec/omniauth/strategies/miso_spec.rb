@@ -45,7 +45,7 @@ describe OmniAuth::Strategies::Miso do
           'name' => '',
           'nickname' => '',
           'profile_image_url' => 'http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png',
-          'urls' => {'Website'=>''},
+          'urls' => {'Website'=> 'http://judearasu.github.com'},
           'username' => 'judearasu',
 
         }
@@ -76,7 +76,10 @@ describe OmniAuth::Strategies::Miso do
     it 'returns the profile image url from raw_info' do
       subject.info[:profile_image_url].should eq('http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png')
     end
-    
+    it 'returns the website from raw_info' do
+      subject.info[:urls].should be_a(Hash)
+       subject.info[:urls][:Website].should eq('http://judearasu.github.com')
+     end
     it 'returns the username from raw_info' do
       subject.info[:username].should eq('judearasu')
     end
