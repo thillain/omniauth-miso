@@ -35,8 +35,7 @@ describe OmniAuth::Strategies::Miso do
   end
   context '#info' do
     before :each do
-      subject.stub(:raw_info) { 
-        {
+        @raw_info = {
           'id' => '123',
           'description' => '',
           'full_name' => 'Jude Arasu',
@@ -45,11 +44,9 @@ describe OmniAuth::Strategies::Miso do
           'name' => '',
           'nickname' => '',
           'profile_image_url' => 'http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png',
-          'urls' => {'Website'=> 'http://judearasu.github.com'},
-          'username' => 'judearasu',
-
-        }
-      }
+          'urls' => {'Website'=> 'http://judearasu.github.com'},'username' => 'judearasu'
+           }
+          subject.stub(:raw_info) { @raw_info }
     end
 
     it 'returns the id from raw_info' do
@@ -78,7 +75,7 @@ describe OmniAuth::Strategies::Miso do
     end
     it 'returns the website from raw_info' do
       subject.info[:urls].should be_a(Hash)
-       subject.info[:urls][:Website].should eq('http://judearasu.github.com')
+      
      end
     it 'returns the username from raw_info' do
       subject.info[:username].should eq('judearasu')
