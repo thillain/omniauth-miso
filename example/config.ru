@@ -22,7 +22,7 @@ class App < Sinatra::Base
  HTML
   end
 
-  get '/auth/:provider/callback' do
+  get '/auth/miso/callback' do
        puts "THE RESULT HASH: #{request.env['omniauth.auth']}"
   end
 
