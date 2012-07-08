@@ -12,7 +12,7 @@ module OmniAuth
 
      
        #uid { access_token.params[:user_id] }
-       uid{ raw_info['id'] }
+       uid{ raw_info['user_id'] }
        info do
         { 
           :id => raw_info['id'],
@@ -25,6 +25,7 @@ module OmniAuth
           :description => raw_info['description'],
           :location=>raw_info['location'],
           :urls =>{ 'Website' => raw_info['url']}
+          :user_id=raw_info['user_id']
         }
       end
        extra do
