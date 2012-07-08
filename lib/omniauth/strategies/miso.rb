@@ -11,7 +11,8 @@ module OmniAuth
                              }
 
      
-       uid { access_token.params[:user_id] }
+       #uid { access_token.params[:user_id] }
+       uid{ raw_info['id'] }
        info do
         { 
           :id => raw_info['id'],
