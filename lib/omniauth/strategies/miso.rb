@@ -5,8 +5,8 @@ module OmniAuth
   module Strategies
     class Miso < OmniAuth::Strategies::OAuth
       option :name, "miso"
-      option :client_options,{:site=>'http://gomiso.com',
-                              :authorize_url => 'http://gomiso.com/oauth/authorize',
+      option :client_options,{:site=>'https://gomiso.com',
+                              :authorize_url => 'https://gomiso.com/oauth/authorize',
                               :token_url =>'https://gomiso.com/oauth/access_token'
                              }
 
