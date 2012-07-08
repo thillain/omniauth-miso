@@ -23,8 +23,8 @@ module OmniAuth
           :image => raw_info['image'],
           :description => raw_info['description'],
           :location=>raw_info['location'],
-          :urls =>{ 'Website' => raw_info['url']}
-          :user_id=raw_info['user_id']
+          :urls =>{ 'Website' => raw_info['url']},
+          :user_id=>raw_info['user_id']
         }
       end
        extra do
