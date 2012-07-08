@@ -33,27 +33,53 @@ describe OmniAuth::Strategies::Miso do
       subject.options.client_options[:authorize_url].should eq('/oauth/authorize')
     end
   end
-   describe '#info' do
+  context '#info' do
     before :each do
-      @raw_info = {
-          :id => '362474',
-          :nickname => '',
-          :name => '',
-          :username => 'judearasu',
-          :full_name => 'Jude Arasu',
-          :profile_image_url => 'http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png',
-          :image => '',
-          :description => '',
-          :location=>'',
-          :urls =>{ 'Website' => 'http://judearasu.github.com'},
-          :provider =>'miso'
+      subject.stub(:raw_info) { 
+        {
+          'id' => '123',
+          'description' => '',
+          'full_name' => 'Jude Arasu',
+          'image' => '',
+          'location' => '',
+          'name' => '',
+          'nickname' => '',
+          'profile_image_url' => 'http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png',
+          'urls' => {'Website'=>''},
+          'username' => 'judearasu',
+
+        }
       }
-      subject.stub(:raw_info) { @raw_info }
     end
-    context 'when data is present in raw info' do
-       it 'returns the name' do
-        subject.info[:name].should be_nil
-      end
+
+    it 'returns the id from raw_info' do
+      subject.info[:id].should eq('123')
     end
-   end
+    it 'returns the description from raw_info' do
+      subject.info[:description].should eq('')
+    end
+    it 'returns the full name from raw_info' do
+      subject.info[:full_name].should eq('Jude Arasu')
+    end
+    it 'returns the image from raw_info' do
+      subject.info[:image].should eq('')
+    end
+    it 'returns the location from raw_info' do
+      subject.info[:location].should eq('')
+    end
+    it 'returns the name from raw_info' do
+      subject.info[:name].should eq('')
+    end
+    it 'returns the nickname from raw_info' do
+      subject.info[:nickname].should eq('')
+    end
+    it 'returns the profile image url from raw_info' do
+      subject.info[:profile_image_url].should eq('http://gomiso.com/uploads/BAhbCFsHOgZmIiEyMDEyLzA3LzA3LzA1LzQxLzI5Lzc0OC9maWxlWwc6BmU6CHBuZ1sIOgZwOgp0aHVtYiILODB4ODAj.png')
+    end
+    
+    it 'returns the username from raw_info' do
+      subject.info[:username].should eq('judearasu')
+    end
+    
+  end
 end
