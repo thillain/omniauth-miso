@@ -24,6 +24,9 @@ class App < Sinatra::Base
 
   get '/auth/miso/callback' do
        puts "THE RESULT HASH: #{request.env['omniauth.auth']}"
+       <<-HTML
+       #{:nickname}
+       HTML
   end
 
   get '/auth/failure' do
