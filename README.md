@@ -6,7 +6,7 @@ Miso uses the OAuth 1.0 flow, you can read about it here: http://gomiso.com/deve
 
 ## How To Use It
 
-Usage is as per any other OmniAuth 1.0 strategy.Add the strategy to your Rails 'Gemfile':
+Usage is as per any other OmniAuth 1.0a strategy.Add the strategy to your Rails 'Gemfile':
 
     gem 'omniauth-miso'
 
